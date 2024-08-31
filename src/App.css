@@ -63,6 +63,8 @@ body {
 
 .search-button.active {
   right: 250px;
+  background-color: transparent;
+  border: none;
 }
 
 .search-button:hover {
@@ -70,7 +72,8 @@ body {
 }
 
 .search-button:focus {
-  background-color: transparent;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
 .search-button:active {
@@ -86,6 +89,19 @@ body {
   transform: translateY(-50%);
   padding: 8px 12px;
   transition: all 0.3s;
+}
+
+.search-form:active {
+  outline: none !important;
+}
+
+.search-form:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.search-form:hover {
+  outline: none !important;
 }
 
 .search-form.active {
