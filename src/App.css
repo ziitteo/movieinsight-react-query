@@ -58,7 +58,7 @@ body {
   background-color: transparent;
   border: none;
   z-index: 200;
-  transition: left 0.3s;
+  transition: all 0.3s;
 }
 
 .search-button.active {
