@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 const AppLayout = () => {
   const [isSearchFormVisible, setIsSearchFormVisible] = useState(false);
@@ -35,36 +35,36 @@ const AppLayout = () => {
     <div className='main-container'>
       <Navbar expand='lg' className='bg-body-tertiary' bg='dark' data-bs-theme='dark'>
         <Container fluid>
-          <Navbar.Brand href='/' className='logo'>
+          <Navbar.Brand as={Link} to='/' className='logo'>
             <img src='https://www.wavve.com/img/ci-wavve.5b304973.svg' alt='wavve' />
           </Navbar.Brand>
           <Navbar.Collapse id='navbarScroll'>
             <Nav className='me-auto my-2 my-lg-0 nav-menu-wrap' style={{ maxHeight: '100px' }} navbarScroll>
-              <Nav.Link href='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='/' className='nav-font-style'>
                 드라마
               </Nav.Link>
-              <Nav.Link href='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='/' className='nav-font-style'>
                 예능
               </Nav.Link>
-              <Nav.Link href='/movies' className='nav-font-style'>
+              <Nav.Link as={Link} to='/movies' className='nav-font-style'>
                 영화
               </Nav.Link>
-              <Nav.Link href='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='/' className='nav-font-style'>
                 애니
               </Nav.Link>
-              <Nav.Link href='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='/' className='nav-font-style'>
                 해외시리즈
               </Nav.Link>
-              <Nav.Link href='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='/' className='nav-font-style'>
                 시사교양
               </Nav.Link>
-              <Nav.Link href='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='/' className='nav-font-style'>
                 키즈
               </Nav.Link>
-              <Nav.Link href='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='/' className='nav-font-style'>
                 영화플러스
               </Nav.Link>
-              <Nav.Link href='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='/' className='nav-font-style'>
                 LIVE
               </Nav.Link>
             </Nav>
