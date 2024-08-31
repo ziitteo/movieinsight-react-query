@@ -46,7 +46,7 @@ const AppLayout = () => {
               <Nav.Link href='/' className='nav-font-style'>
                 예능
               </Nav.Link>
-              <Nav.Link href='movies' className='nav-font-style'>
+              <Nav.Link href='/movies' className='nav-font-style'>
                 영화
               </Nav.Link>
               <Nav.Link href='/' className='nav-font-style'>
