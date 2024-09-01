@@ -62,6 +62,12 @@ a {
 
 .bg-body-tertiary .logo {
   margin-right: 78px;
+  color: #fff;
+}
+
+.bg-body-tertiary .logo h1 {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .nav-menu-wrap {
@@ -76,7 +82,15 @@ a {
   white-space: nowrap;
 }
 
+.nav-font-style:visited {
+  color: #a5a5a5;
+}
+
 .nav-font-style:hover {
+  color: #fff;
+}
+
+.nav-font-style:active {
   color: #fff;
 }
 
@@ -142,6 +156,12 @@ a {
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.section {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 /* 반응형 */

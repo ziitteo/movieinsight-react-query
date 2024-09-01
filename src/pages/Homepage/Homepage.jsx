@@ -8,7 +8,7 @@ import Banner from './components/Banner/Banner';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className='section'>
       <Banner />
     </div>
   );
