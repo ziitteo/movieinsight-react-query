@@ -50,6 +50,10 @@ body {
   white-space: nowrap;
 }
 
+.nav-font-style:hover {
+  color: #fff;
+}
+
 .search-button {
   position: absolute;
   top: 50%;
