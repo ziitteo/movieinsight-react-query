@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet, Link } from 'react-router-dom';
+import './AppLayout.style.css';
 
 const AppLayout = () => {
   const [isSearchFormVisible, setIsSearchFormVisible] = useState(false);
@@ -50,7 +51,7 @@ const AppLayout = () => {
   }, [isSearchFormVisible]);
 
   return (
-    <div className='main-container'>
+    <div className='nav-container'>
       <Navbar expand='lg' className='bg-body-tertiary'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/' className='logo'>
