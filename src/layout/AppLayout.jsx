@@ -40,31 +40,31 @@ const AppLayout = () => {
           </Navbar.Brand>
           <Navbar.Collapse id='navbarScroll'>
             <Nav className='me-auto my-2 my-lg-0 nav-menu-wrap' style={{ maxHeight: '100px' }} navbarScroll>
-              <Nav.Link as={Link} to='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='#' className='nav-font-style'>
                 드라마
               </Nav.Link>
-              <Nav.Link as={Link} to='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='#' className='nav-font-style'>
                 예능
               </Nav.Link>
               <Nav.Link as={Link} to='/movies' className='nav-font-style'>
                 영화
               </Nav.Link>
-              <Nav.Link as={Link} to='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='#' className='nav-font-style'>
                 애니
               </Nav.Link>
-              <Nav.Link as={Link} to='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='#' className='nav-font-style'>
                 해외시리즈
               </Nav.Link>
-              <Nav.Link as={Link} to='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='#' className='nav-font-style'>
                 시사교양
               </Nav.Link>
-              <Nav.Link as={Link} to='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='#' className='nav-font-style'>
                 키즈
               </Nav.Link>
-              <Nav.Link as={Link} to='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='#' className='nav-font-style'>
                 영화플러스
               </Nav.Link>
-              <Nav.Link as={Link} to='/' className='nav-font-style'>
+              <Nav.Link as={Link} to='#' className='nav-font-style'>
                 LIVE
               </Nav.Link>
             </Nav>
