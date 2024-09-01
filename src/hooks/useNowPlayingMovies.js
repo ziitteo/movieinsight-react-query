@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import api from '../utils/api';
 
 const fetchNowPlayingMovies = () => {
-  return api.get(`/movie/now_playing`);
+  return api.get(`/movie/now_playing?language=ko-KR`);
 };
 
 const useNowPlayingMoviesQuery = () => {
