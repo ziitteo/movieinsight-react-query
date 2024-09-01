@@ -9,13 +9,37 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+ul,
+ol,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .hide {
   display: none;
 }
 
 .main-container {
   width: 100%;
-  max-width: 1240px;
   margin: 0 auto;
   color: #fff;
   overflow: hidden;
@@ -24,6 +48,8 @@ body {
 .bg-body-tertiary {
   position: relative;
   width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
   height: 74px;
   background-color: #1b1b1b !important;
   padding: 0;
@@ -112,4 +138,35 @@ body {
   right: 0;
   border: 1px solid #2f2f2f;
   border-radius: 4px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* 반응형 */
+/* 991px 이하일 때 */
+@media (max-width: 991px) {
+  .d-flex.search-form-group {
+    position: relative;
+    bottom: -40px;
+  }
+
+  .search-button {
+    position: relative;
+    left: 0;
+  }
+
+  .search-button.active {
+    left: 0;
+  }
+
+  .search-form {
+    position: relative;
+    left: 0;
+  }
+
+  .search-form.active {
+    left: 0;
+  }
 }

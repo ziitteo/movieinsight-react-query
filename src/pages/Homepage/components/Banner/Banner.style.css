@@ -1,0 +1,31 @@
+.slider {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 56vh;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.banner-text-area {
+  width: 36%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
