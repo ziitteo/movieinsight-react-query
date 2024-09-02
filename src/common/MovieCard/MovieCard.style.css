@@ -53,6 +53,30 @@
 
 .movie-info {
   display: flex;
+  flex-direction: column;
   margin-top: 10px;
   gap: 5px;
+}
+
+.movie-info2 {
+  display: flex;
+  gap: 5px;
+}
+
+.movie-age {
+  margin-top: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.adult {
+  background-image: url(https://i.namu.wiki/i/CLhQiPZyOB0c50kkVKBKrlpEL3SwrhgQGNe7NNVtiatq49QxoHx68cASxEfQAgtSuMo_-7pcNtetfr0RV68xgQ.svg);
+  background-color: #fff;
+}
+
+.all {
+  background-image: url(https://i.namu.wiki/i/oue1NCn0ejKPZgHqsUYAer_tvO-7Jarrq_6uqUT4Gkm9H3P0ADs9F-4-TU4R_RXPHXc06RcD9FrWlAlcQYH7fQ.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

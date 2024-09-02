@@ -5,12 +5,14 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import './AppLayout.style.css';
 
 const AppLayout = () => {
   const [isSearchFormVisible, setIsSearchFormVisible] = useState(false);
   const [expandSize, setExpandSize] = useState('lg');
+  const [keyword, setKeyword] = useState('');
+  const navigate = useNavigate();
 
   const searchFormRef = useRef(null);
 
@@ -22,6 +24,13 @@ const AppLayout = () => {
     if (searchFormRef.current && !searchFormRef.current.contains(event.target)) {
       setIsSearchFormVisible(false);
     }
+  };
+
+  const searchByKeyword = event => {
+    event.preventDefault();
+    //  url을 바꿔주기
+    navigate(`/movies?q=${keyword}`);
+    setKeyword('');
   };
 
   useEffect(() => {
@@ -71,8 +80,16 @@ const AppLayout = () => {
                   영화
                 </Nav.Link>
               </Nav>
-              <Form className={`d-flex search-form-group ${isSearchFormVisible ? 'active' : ''}`} ref={searchFormRef}>
-                <Button className={`search-button ${isSearchFormVisible ? 'active' : ''}`} onClick={showSearchForm}>
+              <Form
+                className={`d-flex search-form-group ${isSearchFormVisible ? 'active' : ''}`}
+                ref={searchFormRef}
+                onSubmit={searchByKeyword}
+              >
+                <Button
+                  type='submit'
+                  className={`search-button ${isSearchFormVisible ? 'active' : ''}`}
+                  onClick={showSearchForm}
+                >
                   <svg
                     data-v-d955b8b8=''
                     width='22'
@@ -101,6 +118,8 @@ const AppLayout = () => {
                   placeholder='제목, 장르, 배우로 찾아보세요'
                   className={`me-2 search-form ${isSearchFormVisible ? 'active' : ''}`}
                   aria-label='Search'
+                  value={keyword}
+                  onChange={event => setKeyword(event.target.value)}
                 />
               </Form>
             </Offcanvas.Body>
