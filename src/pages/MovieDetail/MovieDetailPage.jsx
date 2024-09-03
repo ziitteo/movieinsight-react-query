@@ -3,18 +3,29 @@ import { useParams } from 'react-router-dom';
 import { Alert, Badge, Button, Spinner } from 'react-bootstrap';
 import useMovieDetailQuery from '../../hooks/useMovieDetail';
 import useMovieVideoQuery from '../../hooks/useMovieVideo';
+import useMovieReviewQuery from '../../hooks/useMovieReviews';
 import TrailerVideoModal from './components/TrailerVideoModal/TrailerVideoModal';
+import DetailViewContent from './components/DetailViewContent/DetailViewContent';
+import RecommendContent from './components/RecommendContent/RecommendContent';
+import ReviewContent from './components/ReviewContent/ReviewContent';
 import './MovieDetailPage.style.css';
 
 const MovieDetailPage = () => {
+  const menuList = ['상세정보', '추천', '리뷰'];
+
   const [modalShow, setModalShow] = useState(false);
+  const [activeMenu, setActiveMenu] = useState('상세정보');
+
   const { id } = useParams(); // 라우트에서 movie_id를 받아옵니다.
   const { data, isLoading, isError, error } = useMovieDetailQuery(id);
   const { data: videoData } = useMovieVideoQuery(id);
-  console.log('movie', data);
-  console.log('video', videoData);
+  const { data: reviewData } = useMovieReviewQuery(id);
 
-  const trailerKey = videoData?.results?.[videoData.results.length - 1].key;
+  const handleMenuSelect = event => {
+    setActiveMenu(event.currentTarget.textContent); // 텍스트를 정확히 가져오도록 수정
+  };
+
+  const trailerKey = videoData?.results?.[0]?.key;
 
   if (isLoading) {
     return <Spinner animation='border' variant='warning' />;
@@ -41,7 +52,7 @@ const MovieDetailPage = () => {
           </div>
           <div className='movie-genre'>
             {data.genres.map(genre => (
-              <Badge bg='warning' text='dark' className='movie-genre'>
+              <Badge key={genre.id} bg='warning' text='dark' className='movie-genre'>
                 {genre.name}
               </Badge>
             ))}
@@ -49,11 +60,29 @@ const MovieDetailPage = () => {
 
           <div className='play-button'>
             <Button variant='danger' onClick={() => setModalShow(true)}>
-              예고편 보기<span class='btn-play'> ▶</span>
+              예고편 보기<span className='btn-play'> ▶</span>
             </Button>
             <TrailerVideoModal show={modalShow} onHide={() => setModalShow(false)} movieID={trailerKey} />
           </div>
           <p className='overview'>{data.overview}</p>
+        </div>
+      </div>
+      <div className='bottom-contents'>
+        <div className='content-nav'>
+          <ul>
+            {menuList.map(menu => (
+              <li key={menu}>
+                <button type='button' onClick={handleMenuSelect} className={activeMenu === menu ? 'on' : ''}>
+                  {menu}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className='movie-detail-info-container'>
+          {activeMenu === '상세정보' && <DetailViewContent data={data} />}
+          {activeMenu === '추천' && <RecommendContent />}
+          {activeMenu === '리뷰' && <ReviewContent reviewData={reviewData} />}
         </div>
       </div>
     </div>

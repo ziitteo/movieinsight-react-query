@@ -52,6 +52,52 @@
   width: 24px;
   height: 24px;
   margin-left: 5px;
-  /* background-image: url(https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-175-play-806cb05551791b8dedd7f8d38fd3bd806e2d397fcfeaa00a5cc9129f0819fd07.svg);
-  filter: invert(1) grayscale(100%) brightness(200%); */
+}
+
+.bottom-contents {
+  position: relative;
+  margin-top: 40px;
+  z-index: 20;
+}
+
+.bottom-contents .content-nav {
+  margin-bottom: 40px;
+}
+
+.content-nav {
+  position: relative;
+  overflow: hidden;
+  width: 1240px;
+  margin: 0 auto 20px;
+}
+
+.content-nav ul {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #2f2f2f;
+  font-size: 0;
+}
+
+.content-nav ul li {
+  vertical-align: middle;
+}
+
+.content-nav ul li + li {
+  margin-left: 20px;
+}
+
+.content-nav ul li button {
+  display: inline-block;
+  padding: 0 10px;
+  border-bottom: 4px solid transparent;
+  font-size: 18px;
+  color: #a5a5a5;
+  line-height: 63px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.content-nav ul li button.on {
+  border-bottom-color: #1351f9;
+  color: #fff;
 }

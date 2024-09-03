@@ -6,13 +6,6 @@
   margin-bottom: 24px;
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  background-color: transparent !important;
-}
-
 .dropdown-toggle {
   width: 200px;
   display: flex;
@@ -159,4 +152,11 @@ option {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: transparent !important;
 }

@@ -5,8 +5,8 @@ import './TrailerVideoModal.style.css';
 
 const TrailerVideoModal = props => {
   const onPlayerReady = event => {
-    // access to player in all event handlers via event.target
-    event.target.pauseVideo();
+    // 동영상 재생
+    event.target.playVideo();
   };
 
   const opts = {
@@ -14,7 +14,6 @@ const TrailerVideoModal = props => {
     height: '400',
     playerVars: {
       autoplay: 1, // 자동 재생 활성화
-      controls: 1,
     },
   };
 
