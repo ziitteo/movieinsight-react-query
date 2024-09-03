@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Alert, Spinner } from 'react-bootstrap';
 import useMovieCreditsQuery from '../../../../hooks/useMovieCredits';
 import './DetailViewContent.style.css';
 
-const DetailViewContent = ({ data }) => {
+const DetailViewContent = forwardRef(({ data }, ref) => {
   const { id } = useParams(); // 라우트에서 movie_id를 받아옵니다.
 
   const { data: creditsData, isLoading, isError, error } = useMovieCreditsQuery(id);
@@ -27,7 +27,7 @@ const DetailViewContent = ({ data }) => {
   }
 
   return (
-    <div className='detail-view-content-area'>
+    <div className='detail-view-content-area' ref={ref}>
       <div className='poster-box'>
         <img src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${data.poster_path}`} alt={data.title} />
       </div>
@@ -87,6 +87,6 @@ const DetailViewContent = ({ data }) => {
       </div>
     </div>
   );
-};
+});
 
 export default DetailViewContent;

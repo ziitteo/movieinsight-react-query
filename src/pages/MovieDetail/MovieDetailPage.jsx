@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Alert, Badge, Button, Spinner } from 'react-bootstrap';
 import useMovieDetailQuery from '../../hooks/useMovieDetail';
 import useMovieVideoQuery from '../../hooks/useMovieVideo';
-import useMovieReviewQuery from '../../hooks/useMovieReviews';
 import TrailerVideoModal from './components/TrailerVideoModal/TrailerVideoModal';
 import DetailViewContent from './components/DetailViewContent/DetailViewContent';
 import RecommendContent from './components/RecommendContent/RecommendContent';
@@ -19,10 +18,15 @@ const MovieDetailPage = () => {
   const { id } = useParams(); // 라우트에서 movie_id를 받아옵니다.
   const { data, isLoading, isError, error } = useMovieDetailQuery(id);
   const { data: videoData } = useMovieVideoQuery(id);
-  const { data: reviewData } = useMovieReviewQuery(id);
+
+  const detailViewRef = useRef(null);
 
   const handleMenuSelect = event => {
     setActiveMenu(event.currentTarget.textContent); // 텍스트를 정확히 가져오도록 수정
+  };
+
+  const handleShowMore = () => {
+    detailViewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const trailerKey = videoData?.results?.[0]?.key;
@@ -64,7 +68,14 @@ const MovieDetailPage = () => {
             </Button>
             <TrailerVideoModal show={modalShow} onHide={() => setModalShow(false)} movieID={trailerKey} />
           </div>
-          <p className='overview'>{data.overview}</p>
+          <p className='overview'>
+            {data.overview.length < 100 ? data.overview : `${data.overview.slice(0, 100)}...`}
+            {data.overview.length > 100 && (
+              <Button variant='link' className='show-more-button' onClick={handleShowMore}>
+                더보기
+              </Button>
+            )}
+          </p>
         </div>
       </div>
       <div className='bottom-contents'>
@@ -80,9 +91,9 @@ const MovieDetailPage = () => {
           </ul>
         </div>
         <div className='movie-detail-info-container'>
-          {activeMenu === '상세정보' && <DetailViewContent data={data} />}
+          {activeMenu === '상세정보' && <DetailViewContent data={data} ref={detailViewRef} />}
           {activeMenu === '추천' && <RecommendContent />}
-          {activeMenu === '리뷰' && <ReviewContent reviewData={reviewData} />}
+          {activeMenu === '리뷰' && <ReviewContent />}
         </div>
       </div>
     </div>

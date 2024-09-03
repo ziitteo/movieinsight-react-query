@@ -1,0 +1,26 @@
+.review-card {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #252525;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.review-card h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.review-card p {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.show-more-btn {
+  color: #f9bc13;
+  margin-bottom: 10px;
+  font-weight: 700;
+}

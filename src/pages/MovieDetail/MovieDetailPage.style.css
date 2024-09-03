@@ -101,3 +101,14 @@
   border-bottom-color: #f9bc13;
   color: #fff;
 }
+
+.show-more-button {
+  text-decoration: none;
+  color: #f9bc13;
+  margin: 0;
+  padding: 0;
+}
+
+.show-more-button:hover {
+  color: #f9bc13;
+}
