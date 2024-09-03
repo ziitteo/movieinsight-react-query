@@ -112,3 +112,18 @@
 .show-more-button:hover {
   color: #f9bc13;
 }
+
+/* 반응형 */
+/* 768px 이하 */
+@media screen and (max-width: 768px) {
+  .movie-detail-info,
+  .movie-genre {
+    display: none;
+  }
+
+  .play-button .btn {
+    height: 30px;
+    padding: 0 20px;
+    font-size: 12px;
+  }
+}

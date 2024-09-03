@@ -4,6 +4,7 @@
 
 .poster-box img {
   border-radius: 15px;
+  margin-bottom: 20px;
 }
 
 .detail-info-box {
@@ -46,4 +47,12 @@
   color: #fff;
   text-align: left;
   vertical-align: top;
+}
+
+/* 반응형 */
+/* 768px 이하 */
+@media screen and (max-width: 768px) {
+  .detail-view-content-area {
+    flex-direction: column;
+  }
 }
