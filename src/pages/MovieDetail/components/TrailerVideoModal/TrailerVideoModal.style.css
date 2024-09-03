@@ -1,0 +1,18 @@
+.modal-content {
+  background-color: #000;
+  border: none;
+}
+
+.btn-close {
+  color: #fff !important;
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+}
+
+.play-button {
+  margin-bottom: 20px;
+}

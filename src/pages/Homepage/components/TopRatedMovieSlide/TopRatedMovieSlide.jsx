@@ -8,7 +8,7 @@ const TopRatedMovieSlide = () => {
   const { data, isLoading, isError, error } = useTopRatedMoviesQuery();
 
   if (isLoading) {
-    return <Spinner animation='border' variant='primary' />;
+    return <Spinner animation='border' variant='warning' />;
   }
 
   if (isError) {

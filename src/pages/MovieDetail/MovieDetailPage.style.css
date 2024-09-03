@@ -1,0 +1,57 @@
+.movie-detail-banner {
+  position: relative;
+}
+
+.movie-detail-banner .banner-text-area {
+  position: absolute;
+  color: #fff;
+  width: 50%;
+}
+
+.movie-detail-banner .banner-text-area h1 {
+  margin-bottom: 10px;
+}
+
+.movie-detail-info {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.movie-detail-info p {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.movie-genre {
+  margin: 0 0 10px;
+}
+
+.detail-age {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.movie-detail-info .movie-genre {
+  margin: 0;
+}
+
+.play-button .btn {
+  height: 48px;
+  padding: 0 20px;
+}
+
+.btn-play {
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+  /* background-image: url(https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-175-play-806cb05551791b8dedd7f8d38fd3bd806e2d397fcfeaa00a5cc9129f0819fd07.svg);
+  filter: invert(1) grayscale(100%) brightness(200%); */
+}

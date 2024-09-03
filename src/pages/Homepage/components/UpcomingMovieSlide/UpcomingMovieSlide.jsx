@@ -8,7 +8,7 @@ const UpcomingMovieSlide = () => {
   const { data, isLoading, isError, error } = useUpcomingMoviesQuery();
 
   if (isLoading) {
-    return <Spinner animation='border' variant='primary' />;
+    return <Spinner animation='border' variant='warning' />;
   }
 
   if (isError) {

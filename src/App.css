@@ -8,6 +8,13 @@ body {
   background-color: #1b1b1b;
   font-family: 'Noto Sans KR', sans-serif;
   color: #fff;
+  scrollbar-color: #a5a5a5 #1b1b1b;
+  scrollbar-face-color: #a5a5a5;
+  scrollbar-track-color: #1b1b1b;
+  scrollbar-arrow-color: #a5a5a5;
+  scrollbar-3dlight-color: none;
+  scrollbar-shadow-color: #a5a5a5;
+  scrollbar-darkshadow-color: none;
 }
 
 ul,
@@ -33,6 +40,12 @@ input {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.App {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 .hide {
