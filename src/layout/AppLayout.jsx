@@ -86,7 +86,7 @@ const AppLayout = () => {
                 onSubmit={searchByKeyword}
               >
                 <Button
-                  type='submit'
+                  type='button'
                   className={`search-button ${isSearchFormVisible ? 'active' : ''}`}
                   onClick={showSearchForm}
                 >

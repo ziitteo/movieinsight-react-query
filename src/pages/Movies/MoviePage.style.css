@@ -158,5 +158,34 @@ option {
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  background-color: transparent !important;
+}
+.pagination .page-item .page-link {
+  background-color: transparent;
+  color: #f9bc13;
+  border: none;
+  font-weight: 700;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #f9bc13;
+  color: #fff;
+  border: none;
+}
+
+.pagination .page-item .page-link:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.pagination .page-item .page-link:active {
+  outline: none;
+  border: none;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #f9bc13;
+  color: #fff;
+  outline: none;
+  border: none;
 }

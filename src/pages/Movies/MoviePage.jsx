@@ -9,15 +9,6 @@ import MovieCard from '../../common/MovieCard/MovieCard';
 import useMovieGenreQuery from '../../hooks/useMovieGenre';
 import './MoviePage.style.css';
 
-// 경로 2가지
-// nav바에서 클릭해서 온 경우 => popular 영화 보여주기
-// keyword 검색해서 온 경우 => keyword와 관련된 영화들을 보여줌
-
-// 페이지네이션 설치
-// page state 만들기
-// 페이지네이션 클릭할 때마다 page 바꿔주기
-// page가 바뀔 때마다 useSearchMovieQuery에 page까지 넣어서 fetch
-
 const MoviePage = () => {
   const selectList = ['인기 많은순', '인기 적은순', '최신순', '가나다순'];
 
@@ -31,6 +22,8 @@ const MoviePage = () => {
 
   const { data, isLoading, isError, error } = useSearchMovieQuery({ keyword, page });
   const { data: genreData, isLoading: isGenreLoading, isError: isGenreError } = useMovieGenreQuery();
+
+  const totalPages = Math.min(data?.total_pages || 1, 500);
 
   const handlePageClick = ({ selected }) => {
     setPage(selected + 1);
@@ -76,7 +69,7 @@ const MoviePage = () => {
       const totalFilteredPages = filteredMovies ? Math.ceil(filteredMovies.length / 20) : 0;
       setPageCount(totalFilteredPages);
     } else {
-      setPageCount(data?.total_pages || 0);
+      setPageCount(totalPages || 0);
     }
   }, [data, query]);
 
@@ -87,6 +80,10 @@ const MoviePage = () => {
   if (isError || isGenreError) {
     return <Alert variant='danger'>Error: {error?.message || '장르 데이터를 가져오는 중 오류가 발생했습니다.'}</Alert>;
   }
+
+  const noMoviesMessage = keyword
+    ? `'${keyword}' 키워드로 검색할 수 있는 영화가 없습니다`
+    : `'${selectedGenre}'와 일치하는 영화가 없습니다`;
 
   return (
     <Container className='section'>
@@ -139,7 +136,7 @@ const MoviePage = () => {
               ))}
             </Row>
           ) : (
-            <Alert variant='warning'>"{selectedGenre}" 와 일치하는 영화가 없습니다.</Alert>
+            <Alert variant='warning'>{noMoviesMessage}</Alert>
           )}
         </Col>
         <ReactPaginate
