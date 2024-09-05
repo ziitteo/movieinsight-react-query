@@ -13,22 +13,26 @@ const MoviePage = () => {
   const selectList = ['인기 많은순', '인기 적은순', '최신순', '가나다순'];
 
   const [query, setQuery] = useSearchParams();
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1); // 페이지 상태 관리
   const [selectedGenre, setSelectedGenre] = useState('장르');
   const [selectedSort, setSelectedSort] = useState('인기 많은순');
   const [pageCount, setPageCount] = useState(0);
 
   const keyword = query.get('q');
+  const genreId = query.get('genre'); // genre도 가져오기
 
+  // 영화와 장르 데이터를 가져오는 커스텀 훅
   const { data, isLoading, isError, error } = useSearchMovieQuery({ keyword, page });
   const { data: genreData, isLoading: isGenreLoading, isError: isGenreError } = useMovieGenreQuery();
 
   const totalPages = Math.min(data?.total_pages || 1, 500);
 
+  // 페이지 변경 핸들러
   const handlePageClick = ({ selected }) => {
     setPage(selected + 1);
   };
 
+  // 장르 선택 시 처리
   const sortByGenre = (genreId, genreName) => {
     if (genreId === null) {
       setQuery({});
@@ -36,11 +40,13 @@ const MoviePage = () => {
       setQuery({ genre: genreId });
     }
     setSelectedGenre(genreName);
-    setPage(1); // 장르가 바뀔 때 페이지를 초기화
+    setPage(1); // 장르가 변경될 때 페이지를 1로 초기화
   };
 
+  // 정렬 선택 핸들러
   const handleSelect = event => {
     setSelectedSort(event.target.value);
+    setPage(1); // 정렬 방식이 변경될 때 페이지를 1로 초기화
   };
 
   // 장르 ID가 있는 경우 필터링된 영화 목록을 사용하고, 그렇지 않으면 전체 영화 목록을 사용
@@ -48,6 +54,7 @@ const MoviePage = () => {
     ? data?.results?.filter(movie => movie.genre_ids.includes(parseInt(query.get('genre'), 10)))
     : data?.results;
 
+  // 정렬 방식에 따라 영화 목록 정렬
   const sortedMovies = filteredMovies?.sort((a, b) => {
     switch (selectedSort) {
       case '인기 많은순':
@@ -63,6 +70,12 @@ const MoviePage = () => {
     }
   });
 
+  // keyword나 genre가 변경될 때 page를 1로 설정하는 useEffect
+  useEffect(() => {
+    setPage(1); // keyword가 변경될 때 페이지를 1로 초기화
+  }, [keyword, genreId]);
+
+  // 영화 데이터를 가져올 때 페이지 카운트 계산
   useEffect(() => {
     if (query.get('genre')) {
       const filteredMovies = data?.results?.filter(movie => movie.genre_ids.includes(parseInt(query.get('genre'), 10)));
@@ -71,7 +84,7 @@ const MoviePage = () => {
     } else {
       setPageCount(totalPages || 0);
     }
-  }, [data, query]);
+  }, [data, query, totalPages]);
 
   if (isLoading || isGenreLoading) {
     return <Spinner animation='border' variant='warning' className='spinner-style' />;
@@ -81,6 +94,7 @@ const MoviePage = () => {
     return <Alert variant='danger'>Error: {error?.message || '장르 데이터를 가져오는 중 오류가 발생했습니다.'}</Alert>;
   }
 
+  // 검색어에 따라 메시지를 설정
   const noMoviesMessage = keyword
     ? `'${keyword}' 키워드로 검색할 수 있는 영화가 없습니다`
     : `'${selectedGenre}'와 일치하는 영화가 없습니다`;
@@ -101,7 +115,7 @@ const MoviePage = () => {
         <Col lg={12}>
           <div className='side-filter'>
             <div className='custom-select'>
-              <div className='title'>인기 많은순</div>
+              <div className='title'>{selectedSort}</div>
               <div className='append-icon'>
                 <svg
                   data-v-1cdd826e=''

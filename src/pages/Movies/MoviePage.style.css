@@ -78,6 +78,12 @@
   overflow: hidden;
   overflow-y: scroll;
   border-radius: 12px;
+  z-index: 1050 !important;
+}
+
+.dropdown-menu.show {
+  max-height: 384px;
+  z-index: 999;
 }
 
 .dropdown-item {
@@ -188,4 +194,8 @@ option {
   color: #fff;
   outline: none;
   border: none;
+}
+
+.alert {
+  z-index: 1040;
 }
