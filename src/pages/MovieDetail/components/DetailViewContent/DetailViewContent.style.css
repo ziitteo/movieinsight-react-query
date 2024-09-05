@@ -2,7 +2,14 @@
   display: flex;
 }
 
+.poster-box {
+  max-width: 300px;
+  max-height: 450px;
+}
+
 .poster-box img {
+  width: 100%;
+  height: 100%;
   border-radius: 15px;
   margin-bottom: 20px;
 }

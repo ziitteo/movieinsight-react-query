@@ -3,6 +3,7 @@
   height: 330px;
   border-radius: 10px;
   background-size: cover;
+  background-position: center;
   cursor: pointer;
   transition: 0.5s;
 }

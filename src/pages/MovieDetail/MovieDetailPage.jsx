@@ -41,12 +41,20 @@ const MovieDetailPage = () => {
 
   return (
     <div className='section'>
-      <div className='movie-detail-banner'>
-        <img
-          src={`https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${data.backdrop_path}`}
-          alt={data.title}
-          className='banner-image'
-        />
+      <div
+        className='movie-detail-banner'
+        style={{
+          backgroundColor: data.backdrop_path ? 'transparent' : '#252525', // 이미지가 없을 경우 배경색 설정
+          minHeight: data.backdrop_path ? 'auto' : '700px', // 이미지가 없을 경우 최소 높이 설정
+        }}
+      >
+        {data.backdrop_path && (
+          <img
+            src={`https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${data.backdrop_path}`}
+            alt={data.title}
+            style={{ width: '100%', height: 'auto' }} // 이미지의 크기 조정
+          />
+        )}
         <div className='text-white banner-text-area'>
           <h1>{data.title}</h1>
           <div className='movie-detail-info'>

@@ -1,5 +1,7 @@
 .movie-detail-banner {
   position: relative;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .movie-detail-banner .banner-text-area {

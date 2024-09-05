@@ -18,6 +18,10 @@ const DetailViewContent = forwardRef(({ data }, ref) => {
 
   const director = creditsData?.crew?.find(member => member.known_for_department === 'Directing')?.name || '정보 없음';
 
+  const posterImage = data.poster_path
+    ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${data.poster_path}`
+    : 'https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo-available_87543-11093.jpg?size=626&ext=jpg';
+
   if (isLoading) {
     return <Spinner animation='border' variant='warning' />;
   }
@@ -29,7 +33,7 @@ const DetailViewContent = forwardRef(({ data }, ref) => {
   return (
     <div className='detail-view-content-area' ref={ref}>
       <div className='poster-box'>
-        <img src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${data.poster_path}`} alt={data.title} />
+        <img src={posterImage} alt={data.title} />
       </div>
       <div className='detail-info-box'>
         <em className='preview-title'>{data.title}</em>

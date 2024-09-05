@@ -22,20 +22,26 @@ const MovieCard = ({ movie }) => {
     return genreNameList;
   };
 
+  const backgroundImageStyle = movie.poster_path
+    ? `url(https://media.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path})`
+    : `url(https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo-available_87543-11093.jpg?size=626&ext=jpg)`;
+
   return (
     <div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
         role='button'
         tabIndex='0'
-        style={{ backgroundImage: `url(https://media.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path})` }}
+        style={{
+          backgroundImage: backgroundImageStyle,
+        }}
         className='movie-card'
         onClick={showMovieDetail}
       >
         <div className='overlay'>
           <h1>{movie.title}</h1>
           {showGenre(movie.genre_ids).map(id => (
-            <Badge bg='warning' text='dark' className='movie-genre'>
+            <Badge bg='warning' text='dark' className='movie-genre' key={id}>
               {id}
             </Badge>
           ))}
